@@ -1,0 +1,137 @@
+<html>
+
+<head>
+</head>
+
+<body>
+<div class="menu">
+    <ul><li>Представление данных
+        <ul>
+            <li><a href="view1">Информации о цене проданных инструментов</a></li>
+            <li><a href="view2">Информации о покупках клиентов</a></li>
+        </ul></li>
+        <li>Действия над данными
+            <ul>
+                <li><a href="do1">Добавить клиента</a></li>
+                <li><a href="do2">Добавить продажу</a></li>
+            </ul></li>
+        <li>
+            Вывод анализа данных
+            <ul>
+                <li><a href="analysis1">Анализ продаж по месяцам</a></li>
+                <li><a href="analysis2">Анализ продаж среди работников</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<style>
+    .menu {
+        margin-bottom: 100px;
+    }
+
+    body {
+        font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        padding: 20px 50px 150px;
+        font-size: 13px;
+    }
+
+    a{
+        color: #fff;
+    }
+
+    ul {
+        text-align: left;
+        display: inline;
+        margin: 0;
+        padding: 15px 4px 17px 0;
+        list-style: none;
+        -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+        -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    }
+    ul li {
+        font: bold 12px/18px sans-serif;
+        display: inline-block;
+        margin-right: -4px;
+        position: relative;
+        padding: 15px 20px;
+        background: #fff;
+        cursor: pointer;
+        -webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+        -ms-transition: all 0.2s;
+        -o-transition: all 0.2s;
+        transition: all 0.2s;
+    }
+    ul li:hover {
+        background: #555;
+        color: #fff;
+    }
+    ul li ul {
+        padding: 0;
+        position: absolute;
+        top: 48px;
+        left: 0;
+        width: 150px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transiton: opacity 0.2s;
+        -moz-transition: opacity 0.2s;
+        -ms-transition: opacity 0.2s;
+        -o-transition: opacity 0.2s;
+        -transition: opacity 0.2s;
+    }
+    ul li ul li {
+        background: #555;
+        display: block;
+        color: #fff;
+        text-shadow: 0 -1px 0 #000;
+    }
+    ul li ul li:hover { background: #666; }
+    ul li:hover ul {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+    }
+    td {
+        padding-right: 20px;
+    }
+</style>
+
+<div>Добавление продажи</div>
+<form method="post">
+    <input type="text" name="id_client" placeholder="ID Клиента" />
+    <input type="text" name="id_seller" placeholder="ID Продавца">
+    <input type="text" name="id_musical_instrument" placeholder="ID Музыкального инструмента">
+    <input type="text" name="datesales" placeholder="Дата продажи">
+    <button type="submit">Добавить</button>
+</form>
+
+<div>Список продаж:</div>
+
+<table border="0.5">
+    <tr>
+        <td>ID Клиента</td>
+        <td>ID Продавца</td>
+        <td>ID Музыкального инструмента</td>
+        <td>Дата продажи</td>
+    </tr>
+
+{{#sales}}
+    <div>
+            <tr>
+                <td>{{id_client}}</td>
+                <td>{{id_seller}}</td>
+                <td>{{id_musical_instrument}}</td>
+                <td>{{datesales}}</td>
+            </tr>
+    </div>
+{{/sales}}
+</table>
+
+</body>
+</html>
