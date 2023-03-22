@@ -97,7 +97,31 @@
         opacity: 1;
         visibility: visible;
     }
+    td {
+        padding-right: 20px;
+    }
 </style>
+
+<table>
+    <tr>
+        <td>Фамилия</td>
+        <td>Имя</td>
+        <td>Отчество</td>
+        <td>Музыкальный Инструмент</td>
+        <td>Цена</td>
+    </tr>
+{{#aboutClients}}
+    <div>
+        <tr>
+            <td>{{surname}}</td>
+            <td>{{name}}</td>
+            <td>{{patronymic}}</td>
+            <td>{{instrument}}</td>
+            <td>{{price}}</td>
+        </tr>
+    </div>
+{{/aboutClients}}
+    </table>
 
 </body>
 </html>

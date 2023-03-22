@@ -1,11 +1,7 @@
 package com.example.accessingdatamysql;
 
-import com.example.accessingdatamysql.domain.Client;
-import com.example.accessingdatamysql.domain.Message;
-import com.example.accessingdatamysql.domain.Sales;
-import com.example.accessingdatamysql.repos.ClientRepo;
-import com.example.accessingdatamysql.repos.MessageRepo;
-import com.example.accessingdatamysql.repos.SalesRepo;
+import com.example.accessingdatamysql.domain.*;
+import com.example.accessingdatamysql.repos.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +18,10 @@ public class MainController {
 	private ClientRepo clientRepo;
 	@Autowired
 	private SalesRepo salesRepo;
+	@Autowired
+	private AboutClientsRepo aboutClientsRepo;
+	@Autowired
+	private AboutPriceRepo aboutPriceRepo;
 
 
 //	@GetMapping("/test")
@@ -117,5 +117,24 @@ public class MainController {
 
 		return "do2";
 	}
+
+	@GetMapping("view1")
+	public String view1(Map<String, Object> model) {
+		Iterable<AboutPrice> aboutPrice = aboutPriceRepo.findAll();
+
+		model.put("aboutPrice", aboutPrice);
+
+		return "view1";
+	}
+
+	@GetMapping("view2")
+	public String view2(Map<String, Object> model) {
+		Iterable<AboutClients> aboutClients = aboutClientsRepo.findAll();
+
+		model.put("aboutClients", aboutClients);
+
+		return "view2";
+	}
+
 
 }
