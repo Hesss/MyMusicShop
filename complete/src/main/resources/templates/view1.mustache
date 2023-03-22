@@ -97,7 +97,27 @@
         opacity: 1;
         visibility: visible;
     }
+    td {
+        padding-right: 20px;
+    }
 </style>
+
+<table>
+    <tr>
+        <td>ID Продавца</td>
+        <td>Музыкальный Инструмент</td>
+        <td>Цена</td>
+    </tr>
+    {{#aboutPrice}}
+        <div>
+            <tr>
+                <td>{{id_seller}}</td>
+                <td>{{instrument}}</td>
+                <td>{{price}}</td>
+            </tr>
+        </div>
+    {{/aboutPrice}}
+</table>
 
 </body>
 </html>
